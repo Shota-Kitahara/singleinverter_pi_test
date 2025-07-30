@@ -13,6 +13,7 @@ f4 	f4_dutyRef;
 f4	f4_outFrq;
 f4	f4_outTheta;
 f4	f4_outTheta0;
+f4  f4_hogehoge;
 
 
 void vRefCmdCal(){
