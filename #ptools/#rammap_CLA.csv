@@ -1,0 +1,9 @@
+
+0x00001400,_u2__Cla1Regs_MVECT1(2),_u2__Cla1Regs_MVECT2(2),_u2__Cla1Regs_MVECT3(2),_u2__Cla1Regs_MVECT4(2),_u2__Cla1Regs_MVECT5(2),_u2__Cla1Regs_MVECT6(2),_u2__Cla1Regs_MVECT7(2),_u2__Cla1Regs_MVECT8(2)
+0x00001410,_u2__Cla1Regs_MCTL(2)
+0x00001420,_u2__Cla1Regs_MIFR(2),_u2__Cla1Regs_MIOVF(2),_u2__Cla1Regs_MIFRC(2),_u2__Cla1Regs_MICLR(2),_u2__Cla1Regs_MICLROVF(2),_u2__Cla1Regs_MIER(2),_u2__Cla1Regs_MIRUN(2),,_u2__Cla1Regs__MPC(2),,_u2__Cla1Regs__MAR0(2),_u2__Cla1Regs__MAR1(2),,,_u4__Cla1Regs__MSTF(4)
+0x00001430,_u4__Cla1Regs__MR0(2),,,,_u4__Cla1Regs__MR1(2),,,,_u4__Cla1Regs__MR2(2),,,,_u4__Cla1Regs__MR3(2)
+
+0x0005F420,_u4__MemCfgRegs_LSxLOCK(4),,_u4__MemCfgRegs_LSxCOMMIT(4),,_u4__MemCfgRegs_LSxMSEL(4),,_u4__MemCfgRegs_LSxCLAPGM(4),,_u4__MemCfgRegs_LSxACCPROT0(4),,_u4__MemCfgRegs_LSxACCPROT1(4)
+
+0x00009570,_u4_LS2_9570(4),,_u4_LS2_9572(4),,_u4_LS2_9574(4),,_u4_LS2_9576(4),,_u4_LS2_9578(4),,_u4_LS2_957A(4),,_u4_LS2_957C(4),,_u4_LS2_957E(4),
