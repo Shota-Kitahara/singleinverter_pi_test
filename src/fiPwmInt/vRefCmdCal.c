@@ -6,6 +6,7 @@
  */
 #include "vRefCmdCal.h"
 #include <math.h>
+#include "adDetection.h"
 
 f4 	f4g_vuRef0,f4g_vvRef0,f4g_vwRef0;
 
@@ -13,18 +14,15 @@ f4 	f4_dutyRef;
 f4	f4_outFrq;
 f4	f4_outTheta;
 f4	f4_outTheta0;
-float Ti=0.00033333;
-float z=1;
-float w=6000;
-float L=3e-3;
-float fsw=20000;
-float f=50;
-float vdc=30;
-float R=10;
-float Kp=2*z*w*L;
-float Ti=2*z/w;
-float ki=kp/Ti;
-float iLcmd=2.5;
+#define zeta 1.f
+#define wacr 6000.f
+#define Lentz 1.5e-3
+
+float Vdc=0.f;
+float Kp; 
+float Ti; 
+float Ki; 
+float iLcmd=0.f;
 float Yinv;
 float Yinvz;
 float Xinv;
@@ -34,27 +32,23 @@ float Xinv2;
 float Xinvz2;
 float iL;
 float Youtput;
-float f4g_i1Det;
+
 
 
 void vRefCmdCal(){
         thetaCal();
-		f4_dutyRef = LIMIT_f4(f4_dutyRef,0.0f,1.0f);    //リミット処理
-		// f4g_vuRef0 = f4_dutyRef * __sin( f4_outTheta);
-		// f4g_vvRef0 = f4_dutyRef * __sin((f4_outTheta - 2.0943951f));
-		// f4g_vwRef0 = f4_dutyRef * __sin((f4_outTheta + 2.0943951f));
-		
+
 		iL=f4g_i1Det;
-        Xinv=2.5*sin(thetaCal());
+		Vdc=f4g_v1Det;
+        Xinv=iLcmd*sin(f4_outTheta);
 		Yinv=(PWM_PER*Xinv+Ti*Yinvz)/(Ti+PWM_PER);
 		Yinvz=Yinv;
 		Xinvz2=Yinv-iL;
 		Yinv2 = (Kp*(PWM_PER+Ti)*Xinv2+Yinvz2*Ti-Kp*Ti*Xinvz2)  / Ti;
         Yinvz2 = Yinv2;
         Xinvz2= Xinv2;
-		Youtput=Yinv2/100;
-		f4g_vuRef0=Youtput;
-		f4g_vvRef0=-Youtput;
+		Youtput=Yinv2/Vdc;
+		
 }
 
 static void thetaCal(){
@@ -68,6 +62,7 @@ static void thetaCal(){
 
 
 void vRefCmdCalInit(){
-	f4_dutyRef = 0.99f;
-	f4_outFrq = (f4)50.0f;
+	Kp=2.f*zeta*wacr*Lentz;
+	Ti= 2.f*zeta/wacr;
+	Ki= Kp/Ti;
 }

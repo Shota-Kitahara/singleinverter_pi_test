@@ -33,7 +33,7 @@ void fiPwmInt(){
     }
 
     vRefCmdCal();
-    EPWM_setCounterCompareValue(EPWM1_BASE,EPWM_COUNTER_COMPARE_A ,(DSP_CAPK * (f4g_vuRef0 * 0.5f + 0.5f)));
+    EPWM_setCounterCompareValue(EPWM1_BASE,EPWM_COUNTER_COMPARE_A ,(DSP_CAPK * (Youtput * 0.5f + 0.5f)));
     EPWM_setCounterCompareValue(EPWM2_BASE,EPWM_COUNTER_COMPARE_A ,(DSP_CAPK * (f4g_vvRef0 * 0.5f + 0.5f)));
     EPWM_setCounterCompareValue(EPWM3_BASE,EPWM_COUNTER_COMPARE_A ,(DSP_CAPK * (f4g_vwRef0 * 0.5f + 0.5f)));
     EPWM_setCounterCompareValue(EPWM4_BASE,EPWM_COUNTER_COMPARE_A ,(DSP_CAPK * (f4g_vuRef0 * 0.5f + 0.5f)));

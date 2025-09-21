@@ -13,6 +13,9 @@
 void adDet(void);
 void offset_comp(void);
 void adDetInit(void);
+float Ipn =50.f;
+float Nturn = 5.f;
+float Sth = 0.625f;
 
 
 s4      s4g_flg_offset;
@@ -177,7 +180,7 @@ void adDetInit(void){
     f4_gainV5       =   0.271268f;         // 555.556/2048
     f4_gainV6       =   0.016954f;		  // 555.556/32768
 
-    f4g_gainI1       =   0.01171875f;         // 300A/2048
+    f4g_gainI1       =   Ipn*3.f/(Nturn*Sth*4096.f);         // 300A/2048
     f4g_gainI2       =   0.14648f;         // 300A/2048
     f4g_gainI3       =   0.14648f;         // 300A/2048
     f4g_gainI4       =   0.14648f;         // 300A/2048
@@ -224,7 +227,7 @@ void adDetInit(void){
 
     s4_offsetCnt    =   0;
     s4g_state_offset=   0;
-    s4g_flg_offset  =   0;
+    s4g_flg_offset  =   1;
     s4g_offsetError =   0;
     s4_offsetCntMax =   INT_FRQ;
 }

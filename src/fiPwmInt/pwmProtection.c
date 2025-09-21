@@ -163,8 +163,8 @@ void pwmProtectionInit(){
     s4g_IndError  = 0;
     s4_hardError  = 0;
 
-    f4_H_1 = 200.0f;
-    f4_L_1 = -200.0f;
+    f4_H_1 = 45.f;
+    f4_L_1 = -45.f;
 
     f4_H_2 = 200.0f;
     f4_L_2 = -200.0f;
@@ -181,8 +181,8 @@ void pwmProtectionInit(){
     f4_H_6 = 200.0f;
     f4_L_6 = -200.0f;
 
-    f4_H_7 = 200.0f;
-    f4_L_7 = -200.0f;
+    f4_H_7 = 110.f;
+    f4_L_7 = -110.0f;
 
     f4_H_8 = 200.0f;
     f4_L_8 = -200.0f;
@@ -229,8 +229,8 @@ void pwmProtectionInit(){
 
     //(CT1)
     N_ConfigCmpss (1 , 0.000001f );              // Hardware protection setup
-    N_HardCmpHigh (1, f4g_gainI1,  200.0f );
-    N_HardCmpLow  (1, f4g_gainI1, -200.0f );
+    N_HardCmpHigh (1, f4g_gainI1,  350.0f );
+    N_HardCmpLow  (1, f4g_gainI1, -350.0f );
     N_CMP_CLEAR   (1);
 
     //(CT2)

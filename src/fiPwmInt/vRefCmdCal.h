@@ -17,5 +17,6 @@ extern void vRefCmdCalInit(void);
 
 
 extern	f4 	f4g_vuRef0,f4g_vvRef0,f4g_vwRef0;
+extern float Youtput;
 
 #endif /* SRC_FI_PWM_INT_VREFCMDCAL_H_ */
